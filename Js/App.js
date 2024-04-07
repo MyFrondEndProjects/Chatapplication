@@ -69,7 +69,7 @@ main.appendChild(Login);
 
 const Signin=() =>
 {
-    if(usernameinput.value!="")
+    if(usernameinput.value!="" && usernameinput.value.length>0)
     {
         let usernamesave=usernameinput.value;
         console.log(usernamesave);
