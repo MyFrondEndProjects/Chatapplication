@@ -3,49 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatapplication</title>
-    <link rel="stylesheet" href="Css/Style.css">
+    <title>Todo list app</title>
+    <link rel="stylesheet" href="public/Css/Style.css">
 </head>
 <body>
     
     <header class="header">
-        <h2>Sohbet</h2>
+        <h2 class="listtitle">Yapılacaklar listesi</h2>
      </header>
   <main id="main">
     
     <div class="appcontainer">
      
+        <ul class="list">
 
-
-
-        <div class="messagescontainer ">
-        
-            <ul class="messages">
-        
-                <li class="smessage">
-                    <p class="text">lorem100</p>
-                    <span class="sender">Gönderildi</span>
-                    <span class="date">11:00</span>
-                </li>
-        
-        
-                <li class="cmessage">
-                    <p class="text">Lorem ipsum dolor sit amet.</p>
-                    <span class="sender">Gönderdi</span>
-                    <span class="date">11:00</span>
-                </ul>
-      
-                                
-                </ul>
-        </div>
+        </ul>
+    </div>
         
         
                  
                   
         
                     <div class="inputcontainer">
-        <input id="myinput" type="text" placeholder="Mesaj giriniz">
-        <a href="#" class="push"><img src="/İmg/yeniicon.png"></a>
+        <input id="myinput" type="text" placeholder="Listenize içerik giriniz">
+        <a href="#" class="push"><img src="public/İmg/yeniicon.png"></a>
                     </div>
         
             </div>
@@ -55,6 +36,7 @@
 
  
     <script src="Js/App.js"></script>
-<script src="Js/Mysql.js"></script>
+
+
 </body>
 </html>
