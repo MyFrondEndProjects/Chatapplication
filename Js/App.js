@@ -1,10 +1,16 @@
 const appcontainer=document.querySelector(".appcontainer");
 const main=document.querySelector("#main")
 const header=document.querySelector(".header");
+const inputcontainer=document.querySelector(".inputcontainer");
+const listtitle=document.querySelector(".listtitle");
+const push=document.querySelector(".push");
+const myinput=document.querySelector(".myinput");
+const list=document.querySelector(".list");
+
 
 header.remove();
 appcontainer.remove();
-
+inputcontainer.remove();
 
 let logincontainer=document.createElement("div");
 logincontainer.style.width="40em";
@@ -24,11 +30,11 @@ Login.style.left="1.9%";
 Login.style.position="absolute";
 Login.style.paddingTop="10em";
 
-let username=document.createElement("h2");
-username.textContent="Kullanıcı adınızı giriniz";
-username.style.marginBottom="1em";
-username.style.color="#326275";
-username.style.fontSize="1.5em";
+let listname=document.createElement("h2");
+listname.textContent="Ne listesi oluşturmak istersiniz";
+listname.style.marginBottom="1em";
+listname.style.color="#326275";
+listname.style.fontSize="1.5em";
 
 
 
@@ -36,16 +42,16 @@ username.style.fontSize="1.5em";
 
 
 
-let usernameinput=document.createElement("input");
-usernameinput.style.width="20em";
-usernameinput.style.height="2em";
-usernameinput.style.borderRadius="0.2em";
-usernameinput.style.fontSize="1em";
-usernameinput.style.backgroundColor="transparent";
-usernameinput.style.border="none";
-usernameinput.style.borderBottom="3px solid #326275";
-usernameinput.placeholder="Kullanıcı ismi belirleyiniz";
-usernameinput.style.color="#326275";
+let listnameinput=document.createElement("input");
+listnameinput.style.width="20em";
+listnameinput.style.height="2em";
+listnameinput.style.borderRadius="0.2em";
+listnameinput.style.fontSize="1em";
+listnameinput.style.backgroundColor="transparent";
+listnameinput.style.border="none";
+listnameinput.style.borderBottom="3px solid #326275";
+listnameinput.placeholder="Liste başlığını giriniz";
+listnameinput.style.color="#326275";
 
 
 
@@ -61,21 +67,32 @@ loginbutton.style.borderRadius="0.2em";
 
 
 Login.appendChild(logincontainer);
-logincontainer.appendChild(username);
-logincontainer.appendChild(usernameinput);
+logincontainer.appendChild(listname);
+logincontainer.appendChild(listnameinput);
 logincontainer.appendChild(loginbutton);
 main.appendChild(Login);
 
 
 const Signin=() =>
 {
-    if(usernameinput.value!="" && usernameinput.value.length>0)
+    if(listnameinput.value!="" && listnameinput.value.length>0)
     {
-        let usernamesave=usernameinput.value;
-        console.log(usernamesave);
+        let listnamesave=listnameinput.value;
+        
         Login.remove();
         main.appendChild(appcontainer);
         main.appendChild(header);
+        main.appendChild(inputcontainer);
+       
+        listtitle.textContent=listnamesave;
+        
+
+        const listadd=() =>
+        {
+                alert("listeye eklendi");
+                  
+        }
+        push.addEventListener("click", listadd);
     }
 
 }
