@@ -6,6 +6,7 @@ const listtitle=document.querySelector(".listtitle");
 const push=document.querySelector(".push");
 const myinput=document.querySelector("#myinput");
 const list=document.querySelector(".list");
+const notarray=[];
 
 
 header.remove();
@@ -41,7 +42,7 @@ username.style.fontSize="1.5em";
 const notb=document.createElement("input");
 notb.style.position="absolute";
 notb.style.top="0.1%";
-notb.style.right="10em";
+notb.style.right="20em";
 notb.style.backgroundColor="black";
 notb.style.opacity="0.9";
 notb.placeholder="Başlık girin"
@@ -101,18 +102,19 @@ const Signin=() =>
         home.style.top="2%";
         home.style.opacity="0.7";
         home.style.borderRadius="2%";
+        home.style.overflowY="scroll";
 
         let Listeolustur=document.createElement("button");
         Listeolustur.textContent="Liste oluştur +";
         Listeolustur.style.fontSize="1.5em";
         Listeolustur.style.padding="0.2em";
-        Listeolustur.style.backgroundColor="#326275";
+        Listeolustur.style.backgroundColor="#98FB98";
         Listeolustur.style.borderRadius="0.5%";
         Listeolustur.style.color="black";
         Listeolustur.style.position="absolute";
         Listeolustur.style.right="2%";
         Listeolustur.style.top="2%";
-        let homeb=document.createElement("h2");
+        
 
        
  const yenilisteolustur=() =>
@@ -122,17 +124,19 @@ const Signin=() =>
 appcontainer.remove();
 
 Listeolustur.remove();
-
+header.appendChild(notb);
 const savebutton=document.createElement("button");
+savebutton.style.position="absolute";
+savebutton.style.padding="1em";
 savebutton.textContent="kaydet";
-savebutton.style.right="2%";
+savebutton.style.right="3.6%";
 savebutton.style.top="4%";
-savebutton.style.backgroundColor="#326275";
+savebutton.style.backgroundColor="#98FB98";
 savebutton.style.backgroundColor="lightgreen";
 savebutton.textContent="Kaydet";
 
 header.appendChild(savebutton);
-header.appendChild(notb);
+
 
 
 
@@ -155,13 +159,14 @@ listadd.style.opacity="0.7";
 main.appendChild(listadd);
 let save=() =>
 {
+    notb.remove();
    main.appendChild(appcontainer);
     savebutton.remove();
     Listeolustur.remove();
     let savenot=listadd.value;
     listadd.remove();
     console.log(savenot);
-    appcontainer.appendChild(Listeolustur);
+    header.appendChild(Listeolustur);
 
   
   
@@ -169,14 +174,9 @@ let save=() =>
 
 
     let savenots=document.createElement("li");
-    savenots.style.width="100%";
-    savenots.style.height="5%";
-    savenots.style.position="relative";
-    savenots.style.marginTop="5em";
-    savenots.style.backgroundColor="white";
-    savenots.style.opacity="0.7";
-    savenots.style.listStyle="none";
-    
+    savenots.classList.add("notlar");
+    let x=listadd.value;
+    notarray.push(x);
 
     if(notb.value!=""&&notb.value.length>0)
     {
@@ -188,11 +188,26 @@ let save=() =>
         savenots.textContent="Başlık girilmedi";
     }
     
-    appcontainer.appendChild(savenots);
-
+    list.appendChild(savenots);
+    home.appendChild(list);
 
 
     listadd.remove();
+
+   for(let i2=0; i2<notarray.length; i2++)
+   {
+    let sayac=0;
+
+const notprint = () =>
+{
+ sayac++;
+    alert(notarray[i2]);
+}
+
+
+    notarray[i2].addEventListener("click",notprint);
+   }
+ 
 }
 
 
@@ -206,7 +221,7 @@ header.appendChild(savebutton);
         
    Listeolustur.addEventListener("click", yenilisteolustur)
         listtitle.textContent=usernamesave;
-        home.appendChild(Listeolustur);
+        header.appendChild(Listeolustur);
         appcontainer.appendChild(home);
    
     
