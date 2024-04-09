@@ -22,7 +22,7 @@ header
     height:3em;
     background-color:#326275;
     border-top-left-radius: 0.2em;
-    border-top-right-radius: 0.2em;
+    border-top-right-radius: 2%;
     text-align:center;
     opacity: 0.7;
     left:2.5%;
@@ -100,8 +100,4 @@ color: #1E1E1E;
     border-bottom:2px solid #326275;
    background-color: transparent;
    color:#326275;
-}
-.messages
-{
-   flex-grow: 1;
 }
